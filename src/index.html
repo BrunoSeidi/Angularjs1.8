@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="formRequest">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+    <script src='../lib/angular.js'></script>
+    <link rel="stylesheet" type="text/css" href="../lib/bootstrap/css/bootstrap.css"/>
+    
+    <!-- GLOBAL VAR's -->
+    <script> 
+        var APP_NAME = 'formRequest';
+    </script>
+
+    <script src="./app.js"></script>
+    <script src="./controller/solicitation.controller.js"></script>
+
+    <style>
+        .problemSet{
+            width: 40%;
+            text-align: center;
+            margin-top: 50px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="problemSet">  
+        <form ng-controller="SolicitationController" ng-submit="addNewSolicitation()">        
+            <div class="mb-3">
+                <label for="title" class="form-label">Título da Solicitação</label>
+                <input type="text" class="form-control" id="title" placeholder="Descreva brevemente a sua solicitação" ng-required="true" ng-model="newSolicitation.title">
+            </div>
+            <div class="mb-3 mt-10">
+                <label for="description" class="form-label">Descrição da Solicitação</label>
+                <textarea ng-model="newSolicitation.description" class="form-control" name="problemDescription" id="description" rows="4" placeholder="Descreva o problema" ng-required="true"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="decription" class="form-label">Tipo de Requisição</label>
+                <select class="form-select" aria-label="Default select example" ng-model="newSolicitation.solicitationType">
+                    <option ng-repeat="option in solicitationTypes" ng-value="option">{{option.description}}</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="attachment" class="form-label">Título da Solicitação</label>
+                <input type="file" class="form-control" id="attachment" placeholder="Descreva brevemente a sua solicitação" ng-model="newSolicitation.attachment">
+            </div>
+
+            
+            <button class="form-control" type="submit">Enviar</button>
+        </form>
+    </div>
+    </body>
+
+</html>
