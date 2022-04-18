@@ -44,12 +44,18 @@
             </div>
             <div class="mb-3">
                 <label for="decription" class="form-label">Tipo de Requisição</label>
-                <select class="form-select" aria-label="Default select example" ng-model="newSolicitation.solicitationType">
+                <select class="form-select" aria-label="Default select example" ng-model="newSolicitation.solicitationType" ng-change="updateIsNewProjectType()">
                     <option ng-repeat="option in solicitationTypes" ng-value="option">{{option.description}}</option>
                 </select>
             </div>
+            <div class="mb-3" ng-show="isNewProjectType">
+                <span>
+                    <p>Para você cadastrar uma requisição do tipo "Novo Projeto" você deve baixar o formulário abaixo e responde-lo, em seguida anexo o mesmo a esta requisição.</p>
+                    <a href="https://intranet.weg.net/br/motores/vendas/apoiovendas/Dev/Documentos%20Compartilhados/Question%C3%A1rio%20IR.doc">Baixe aqui o formulário!</a>
+                </span>
+            </div>
             <div class="mb-3">
-                <label for="attachment" class="form-label">Título da Solicitação</label>
+                <label for="attachment" class="form-label">Anexos:</label>
                 <input type="file" class="form-control" id="attachment" placeholder="Descreva brevemente a sua solicitação" ng-model="newSolicitation.attachment">
             </div>
 
