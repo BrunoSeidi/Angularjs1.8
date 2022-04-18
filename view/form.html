@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="formRequest">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+    <script src='../lib/angular.js'></script>
+    <link rel="stylesheet" type="text/css" href="../lib/bootstrap/css/bootstrap.css"/>
+
+    <script>
+        angular.module("formRequest", []);
+        angular.module("formRequest").controller("formRequestCtrl", function($scope, $http) {
+            $scope.app = "formRequest";
+            $scope.problems = [];
+        
+            var loadRequest = function(){
+            $http.get('http://localhost:3000/solicitations');
+            };
+
+            $scope.addRequest = function(email1, problemDescription){
+            $scope.problems.push({email1: email1, problemDescription: problemDescription})
+            };
+
+            loadRequest;
+        });
+    </script>
+
+    <style>
+        .problemSet{
+            width: 40%;
+            text-align: center;
+            margin-top: 50px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="problemSet">  
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Email</label>
+            <input type="email" class="form-control" name="email1" id="exampleFormControlInput1" placeholder="name@weg.net" ng-required="true">
+        </div>
+        <div class="mb-3 mt-10">
+            <label for="exampleFormControlTextarea1" class="form-label">Problema</label>
+            <textarea class="form-control" name="problemDescription" id="exampleFormControlTextarea1" rows="4" placeholder="Descreva o problema" ng-required="true"></textarea>
+        </div>
+        <button class="form-control" ng-click="addRequest(email1, problemDescription)" ng-disabled="!email1 || !problemDescription">Enviar</button>
+    </div>
+    </body>
+
+</html>

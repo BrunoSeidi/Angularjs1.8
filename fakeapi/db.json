@@ -1,0 +1,29 @@
+{
+    "solicitationTypes" : [
+        {
+            "id" : 1,
+            "description" : "NEW_PROJECT"
+        },
+        {
+            "id" : 2,
+            "description" : "BUG_REQUEST"
+        },
+        {
+            "id" : 1,
+            "description" : "NEW_TASK"
+        }
+    ],
+
+    "solicitations" : [
+        {
+            "id" : 1,
+            "description" : "Nova solicitação",
+            "solicitationType" :  {
+                "id" : 1,
+                "description" : "NEW_PROJECT"
+            },
+            "attachments" :  "djabkdbajdbwauodwbauodbwaoidwabo",
+            "moreInfos" : "iafnboieafboeifbsoeibfsioe"
+        }
+    ] 
+}
